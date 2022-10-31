@@ -11,7 +11,7 @@ speed = input("Enter Average speed(Km/h) : ")
 
 test_data=np.array([car,bus,bicycle,speed]).reshape(1,-1)
 
-DecisionTree_model=pickle.load(open('Decision_Tree.pkl','rb'))
+DecisionTree_model=pickle.load(open('Project - Mariyam/Decision_Tree.pkl','rb'))
 
 prediction=DecisionTree_model.predict(test_data)
 

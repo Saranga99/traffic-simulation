@@ -234,11 +234,11 @@ def repeat():
 
 # Update values of the signal timers after every second
 def updateValues():
-    print(vehicles)
     for i in range(0, noOfSignals):
         if (i == currentGreen):
             if (currentYellow == 0):
                 signals[i].green -= 1
+                print(vehicles)
             else:
                 signals[i].yellow -= 1
         else:
@@ -259,8 +259,11 @@ def generateVehicles():
             direction_number = 1
         elif (temp < dist[2]):
             direction_number = 2
-        Vehicle(lane_number, vehicleTypes[vehicle_type], direction_number,directionNumbers[direction_number])
-        time.sleep(1)
+        v=Vehicle(lane_number, vehicleTypes[vehicle_type], direction_number,directionNumbers[direction_number])
+        time.sleep(2)
+
+
+
 
 
 class Main:

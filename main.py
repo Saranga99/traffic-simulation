@@ -207,8 +207,7 @@ def initialize():
 
 def repeat():
     global currentGreen, currentYellow, nextGreen
-    while (signals[currentGreen].green >
-           0):  # while the timer of current green signal is not zero
+    while (signals[currentGreen].green > 0):  # while the timer of current green signal is not zero
         updateValues()
         time.sleep(1)
     currentYellow = 1  # set yellow signal on
@@ -216,8 +215,7 @@ def repeat():
     for i in range(0, 3):
         for vehicle in vehicles[directionNumbers[currentGreen]][i]:
             vehicle.stop = defaultStop[directionNumbers[currentGreen]]
-    while (signals[currentGreen].yellow >
-           0):  # while the timer of current yellow signal is not zero
+    while (signals[currentGreen].yellow > 0):  # while the timer of current yellow signal is not zero
         updateValues()
         time.sleep(1)
     currentYellow = 0  # set yellow signal off
@@ -236,6 +234,7 @@ def repeat():
 
 # Update values of the signal timers after every second
 def updateValues():
+    print(vehicles)
     for i in range(0, noOfSignals):
         if (i == currentGreen):
             if (currentYellow == 0):
@@ -292,9 +291,7 @@ class Main:
     greenSignal = pygame.image.load('images/signals/green.png')
     font = pygame.font.Font(None, 30)
 
-    thread2 = threading.Thread(name="generateVehicles",
-                               target=generateVehicles,
-                               args=())  # Generating vehicles
+    thread2 = threading.Thread(name="generateVehicles",target=generateVehicles,args=())  # Generating vehicles
     thread2.daemon = True
     thread2.start()
 
@@ -333,4 +330,4 @@ class Main:
         pygame.display.update()
 
 
-Main()
+# Main()
